@@ -35,22 +35,74 @@ function Content () {
    description: 'Single shot cultivar beans as chicory caffeine. Medium brewed, milk extra that froth pumpkin spice mocha. Whipped redeye pumpkin spice sweet, extraction to go macchiato acerbic steamed filter. Robusta grounds decaffeinated, cortado grounds aftertaste white americano affogato flavour mazagran. Aged eu, extraction, cup seasonal frappuccino in seasonal saucer wings.',
    date: 'June 25, 2020',
    tag: 'Music',
+  },
+  {
+   image: image4,
+   title: 'According a funnily until pre-set or arrogant well cheerful',
+   description: 'Single shot cultivar beans as chicory caffeine. Medium brewed, milk extra that froth pumpkin spice mocha. Whipped redeye pumpkin spice sweet, extraction to go macchiato acerbic steamed filter. Robusta grounds decaffeinated, cortado grounds aftertaste white americano affogato flavour mazagran. Aged eu, extraction, cup seasonal frappuccino in seasonal saucer wings.',
+   date: 'June 25, 2020',
+   tag: 'Music',
   }
  ];
 
+ const [selectedTag, setSelectedTag] = useState();
+ console.log('selectedTag:', selectedTag);
+
+ // let display = 'none';
+ // if (selectedTag) {
+ //  display = 'block';
+ // }
+ // const display = selectedTag ? 'block' : 'none';
+ // <condition> ? <value if true> : <value if false>
+
+ let selectedTagStyle = {};
+ if (selectedTag) {
+  selectedTagStyle.opacity = 1;
+  selectedTagStyle.transform = 'scaleY(1)';
+ }
+
+ /**
+  * == -- we will check value
+  * 5 == 5 => true
+  * 5 == '5' => true
+  * 
+  * === -- we will check type and value
+  * 5 === 5 => true
+  * 5 === '5' => false 
+  */
+ // const showCards = cards.filter(card => {
+ //  if (selectedTag) {
+ //   return card.tag === selectedTag;
+ //  }
+ //  return true;
+ // });
  return (
   <div className="content-container">
+   <div
+    className="selected-tag"
+    style={selectedTagStyle}
+   >{selectedTag}</div>
    {
     cards.map(el => {
+     let isVisible = true;
+     if (selectedTag) {
+      isVisible = selectedTag === el.tag;
+     }
      return (<Card
+      isVisible={isVisible}
       image={el.image}
       description={el.description}
       title={el.title}
       tag={el.tag}
       date={el.date}
+      setTag={setSelectedTag}
      />);
     })
    }
+   <div
+    className="return-button"
+    onClick={() => setSelectedTag()}
+   >All posts</div>
   </div>
  );
 }

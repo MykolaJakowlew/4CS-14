@@ -1,11 +1,27 @@
 .card {
   width: 100%;
-  height: fit-content;
   box-sizing: border-box;
   background-color: #fff;
   border-radius: 10px;
   margin: 20px 0;
   overflow: hidden;
+}
+
+.card.hide {
+  animation-name: card-hide;
+  animation-duration: 1.75s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes card-hide {
+  95% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    height: 0;
+    transform: translateX(100%);
+  }
 }
 
 .card > .card-image {
