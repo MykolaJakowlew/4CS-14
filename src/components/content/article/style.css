@@ -1,0 +1,36 @@
+article {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+article > .card-image {
+  width: 100%;
+  height: 225px;
+  background-size: cover;
+  background-position: center;
+  transition: 0.05s;
+}
+
+article > .card-image:hover {
+  opacity: 0.75;
+}
+
+article > .card-title {
+  font-size: 36px;
+  margin: 5px 10px;
+}
+
+article > .card-description {
+  color: rgb(132, 132, 132);
+  margin: 10px 10px;
+  font-size: 14px;
+}
+
+article > .article-header {
+  font-size: 36px;
+  color: black;
+}
