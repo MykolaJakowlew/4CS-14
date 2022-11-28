@@ -1,23 +1,18 @@
-import { useState } from 'react';
 import './App.css';
-import WidgetWeather from './components/widget-weather';
+import LoginPage from './components/login';
+import MainPage from './components/main';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App () {
-  const [cityName, setCityName] = useState();
-  const onBlur = (event) => {
-    const value = event.target.value;
-    console.log(value);
-    setCityName(value);
-  };
-
   return (
     <div className="App">
-      <input
-        onBlur={onBlur}
-        type="text"
-        placeholder='Input city name'
-      />
-      <WidgetWeather city={cityName} />
+      <BrowserRouter >
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path='/login' element={<LoginPage />} />
+        </Routes>
+
+      </BrowserRouter>
     </div>
   );
 }
