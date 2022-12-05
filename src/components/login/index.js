@@ -30,6 +30,12 @@ function LoginPage () {
   );
 
   localStorage.setItem('token', response.data.token);
+  const userProfile = {
+   firstName: response.data.firstName,
+   lastName: response.data.lastName,
+   image: response.data.image,
+  };
+  localStorage.setItem('userProfile', JSON.stringify(userProfile));
   navigation('/');
  };
 
